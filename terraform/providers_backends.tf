@@ -6,7 +6,7 @@ terraform {
     }
     azuredevops = {
       source = "microsoft/azuredevops"
-      version = ">= 0.1.0"
+      version = ">= 0.2.0"
     }
   }
 }
@@ -14,6 +14,10 @@ terraform {
 provider "azurerm" {
   skip_provider_registration = true
   features {}
+}
+
+provider "azuredevops" {
+  use_msi = true
 }
 
 terraform {
