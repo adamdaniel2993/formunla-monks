@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=3.0.0"
     }
+    azuredevops = {
+      source = "microsoft/azuredevops"
+      version = ">= 0.1.0"
+    }
   }
 }
 
@@ -11,7 +15,6 @@ provider "azurerm" {
   skip_provider_registration = true
   features {}
 }
-
 
 terraform {
   backend "azurerm" {
@@ -21,3 +24,7 @@ terraform {
     key                   = "statefiles/state.tfstate"
   }
 }
+
+
+
+
