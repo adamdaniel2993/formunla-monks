@@ -5,7 +5,7 @@ resources:
 - repo: self
 
 variables:
-  dockerRegistryServiceConnection: 'formularegistrydev'
+  dockerRegistryServiceConnection: '4603f335-91c0-49f9-9a22-791dd1e0e8ce'
   imageRepository: 'formulamonkswebdev'
   containerRegistry: 'formularegistrydev.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
