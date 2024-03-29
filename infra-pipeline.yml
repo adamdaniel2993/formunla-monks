@@ -29,17 +29,18 @@ stages:
       workingDirectory: $(workingDirectory)
 
     - script: |
-        terraform workspace list  || terraform workspace select $(environment)
-      displayName: 'Select Terraform Workspace'
-      workingDirectory: $(workingDirectory)
-
-    - script: |
         terraform init
       displayName: 'Terraform Init'
       workingDirectory: $(workingDirectory)
       env:
         ARM_SUBSCRIPTION_ID: $(serviceConnectionName)
-        # Add other required environment variables like ARM_CLIENT_ID, etc.
+      # Add other required environment variables like ARM_CLIENT_ID, etc.
+
+    - script: |
+        terraform workspace list  || terraform workspace select $(environment)
+      displayName: 'Select Terraform Workspace'
+      workingDirectory: $(workingDirectory)
+
 
     - script: |
         terraform plan -out=tfplan
