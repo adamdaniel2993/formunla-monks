@@ -1,7 +1,9 @@
 trigger:
-- main
-paths:
-  include:
+  branches:
+    include:
+    - main
+  paths:
+    include:
     - formulatest/*
 
 resources:
