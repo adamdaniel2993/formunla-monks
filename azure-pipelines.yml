@@ -6,7 +6,7 @@ trigger:
     include:
     - formulatest/*
     - Dockerfile
-    - docker-pipeline.yml
+    - azure-pipelines.yml
 
 resources:
 - repo: self
