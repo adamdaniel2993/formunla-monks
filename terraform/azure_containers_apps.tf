@@ -20,7 +20,7 @@ resource "azurerm_container_app_environment" "formula_monks_contapp_env" {
   name                = "${local.stack}-contapp"
   location            = azurerm_resource_group.formula_monks_rsg.location
   resource_group_name = azurerm_resource_group.formula_monks_rsg.name
-  #log_analytics_workspace_id = azurerm_log_analytics_workspace.formula_monks_web_law.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.formula_monks_web_law.id
 
   tags = local.default_tags
 }
