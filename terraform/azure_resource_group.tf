@@ -1,7 +1,7 @@
 resource "azurerm_resource_group" "formula_monks_rsg" {
-    location = "eastus"
-    name     = "formulamonks"
-    tags     = {
-        "app" = "formulamonks"
-    }
+  location = var.region
+  name     = var.app
+  tags = {
+    "app" = var.app
+  }
 }
