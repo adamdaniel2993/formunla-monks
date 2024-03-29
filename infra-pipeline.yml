@@ -20,10 +20,6 @@ stages:
     displayName: 'Terraform Deployment'
     steps:
     - checkout: self
-    - task: UseTerraform@0
-      inputs:
-        version: $(terraformVersion)
-
     - script: |
         curl -sL https://releases.hashicorp.com/terraform/$(terraformVersion)/terraform_$(terraformVersion)_linux_amd64.zip -o terraform.zip
         unzip terraform.zip
