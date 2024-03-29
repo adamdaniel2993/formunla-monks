@@ -33,8 +33,11 @@ stages:
       displayName: 'Terraform Init'
       workingDirectory: $(workingDirectory)
       env:
-        ARM_SUBSCRIPTION_ID: $(serviceConnectionName)
-      # Add other required environment variables like ARM_CLIENT_ID, etc.
+        env:
+          ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+          ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+          ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+          ARM_TENANT_ID: $(ARM_TENANT_ID)
 
     - script: |
         terraform workspace list  || terraform workspace select $(environment)
