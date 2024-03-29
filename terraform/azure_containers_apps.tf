@@ -49,6 +49,9 @@ resource "azurerm_role_assignment" "containerapp_scope2" {
   ]
 }
 
+resource "time_sleep" "wait_20_seconds" {
+  create_duration = "20s"
+}
 
 resource "azurerm_container_app" "formula_monks_contapp" {
   name                         = local.stack
@@ -89,5 +92,8 @@ resource "azurerm_container_app" "formula_monks_contapp" {
 
   tags = local.default_tags
 
-  depends_on = [azurerm_container_registry.formula_registry]
+  depends_on = [
+    azurerm_container_registry.formula_registry,
+    azurerm_user_assigned_identity.containerapp,
+    time_sleep.wait_20_seconds ]
 }
