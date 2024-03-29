@@ -24,7 +24,8 @@ stages:
         command: build
         dockerfile: $(dockerfilePath)
         tags: |
-          $(tag)
+          $(imageRepository):$(tag)
+          $(imageRepository):latest
 
     - task: Docker@2
       displayName: 'Push image'
