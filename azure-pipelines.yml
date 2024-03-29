@@ -10,10 +10,7 @@ resources:
 - repo: self
 
 variables:
-  dockerRegistryServiceConnection: 'a4d3a5fe-4034-43a1-96e9-0d207468ad26'
-  imageRepository: 'formulamonkswebdev'
-  containerRegistry: 'formularegistrydev.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+- group: dev-vg
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
