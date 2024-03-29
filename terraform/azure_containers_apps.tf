@@ -17,7 +17,7 @@ resource "azurerm_log_analytics_workspace" "formula_monks_web_law" {
 }
 
 resource "azurerm_container_app_environment" "formula_monks_contapp_env" {
-  name                = "${local.stack}-contapp-env"
+  name                = "${local.stack}-contapp"
   location            = azurerm_resource_group.formula_monks_rsg.location
   resource_group_name = azurerm_resource_group.formula_monks_rsg.name
   #log_analytics_workspace_id = azurerm_log_analytics_workspace.formula_monks_web_law.id
@@ -80,7 +80,7 @@ resource "azurerm_container_app" "formula_monks_contapp" {
   template {
     container {
       name   = "${var.app}-web-${terraform.workspace}"
-      image  = "${azurerm_container_registry.formula_registry.login_server}/formula-monks-web:latest"
+      image  = "${azurerm_container_registry.formula_registry.login_server}/formulamonksweb${terraform.workspace}:latest"
       cpu    = 0.25
       memory = "0.5Gi"
     }
