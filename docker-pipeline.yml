@@ -5,6 +5,7 @@ trigger:
   paths:
     include:
     - formulatest/*
+    - Dockerfile
 
 resources:
 - repo: self
