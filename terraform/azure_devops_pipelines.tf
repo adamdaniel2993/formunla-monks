@@ -1,8 +1,43 @@
-#resource "azuredevops_project_pipeline_settings" "example" {
-#  project_id = azuredevops_project.formula_monks_azdvps.id
-#  enforce_job_scope = true
-#  enforce_referenced_repo_scoped_token = false
-#  enforce_settable_var = true
-#  publish_pipeline_metadata = false
-#  status_badges_are_private = false
+#resource "azuredevops_build_definition" "example" {
+#  project_id = azuredevops_project.example.id
+#  name       = "Example Build Definition"
+#  path       = "\\ExampleFolder"
+#
+#  ci_trigger {
+#    use_yaml = false
+#  }
+#
+#  schedules {
+#    branch_filter {
+#      include = ["master"]
+#      exclude = ["test", "regression"]
+#    }
+#    days_to_build              = ["Wed", "Sun"]
+#    schedule_only_with_changes = true
+#    start_hours                = 10
+#    start_minutes              = 59
+#    time_zone                  = "(UTC) Coordinated Universal Time"
+#  }
+#
+#  repository {
+#    repo_type   = "TfsGit"
+#    repo_id     = azuredevops_git_repository.example.id
+#    branch_name = azuredevops_git_repository.example.default_branch
+#    yml_path    = "azure-pipelines.yml"
+#  }
+#
+#  variable_groups = [
+#    azuredevops_variable_group.example.id
+#  ]
+#
+#  variable {
+#    name  = "PipelineVariable"
+#    value = "Go Microsoft!"
+#  }
+#
+#  variable {
+#    name         = "PipelineSecret"
+#    secret_value = "ZGV2cw"
+#    is_secret    = true
+#  }
 #}

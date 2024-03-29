@@ -80,7 +80,7 @@ resource "azurerm_container_app" "formula_monks_contapp" {
   template {
     container {
       name   = "${var.app}-web-${terraform.workspace}"
-      image  = "${azurerm_container_registry.formula_registry.login_server}/formula-monks-web:v1"
+      image  = "${azurerm_container_registry.formula_registry.login_server}/formula-monks-web:latest"
       cpu    = 0.25
       memory = "0.5Gi"
     }
