@@ -17,7 +17,7 @@ stages:
 - stage: Dev
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
   variables:
-    - group: "dev_vg"
+  - group: dev_vg
   jobs:
   - job: BuildAndPush
     pool:
@@ -47,10 +47,10 @@ stages:
           latest
 
 - stage: QA
-  dependsOn: []
+  
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/qa'))
   variables:
-    - group: "qa_vg"
+  - group: qa_vg
   jobs:
   - job: BuildAndPush
     pool:
