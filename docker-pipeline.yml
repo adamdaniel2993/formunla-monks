@@ -30,6 +30,8 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
+        buildContext: .
+        arguments: '--build-arg IMAGENV=$(IMAGENV)'
         tags: |
           $(tag)
           latest
@@ -50,6 +52,8 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
+        buildContext: .
+        arguments: '--build-arg IMAGENV=$(IMAGENV)'
         tags: |
           $(tag)
           latest
