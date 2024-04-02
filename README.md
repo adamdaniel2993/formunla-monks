@@ -35,7 +35,7 @@ According to my experience with this project, visualize all the environments wit
 
 * Following that same line, I think the same for deployments, it is advisable to have 1 pipeline per environment so we can group each environment with its corresponding variables.
 
-* Said previously, how each environment will have its own resource group, it must also have its own images, registry, and containers
+* Said previously, since each environment will have its own resource group, it must also have its own images, registry, and containers
 
 Note: the terraform that I prepared is designed to be multienvironment since I use terraform workspaces to manage the environments, this results in having each statefile per environment, and I use the name of the workspace as the environment
 
