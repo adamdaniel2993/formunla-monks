@@ -47,6 +47,7 @@ stages:
           latest
 
 - stage: QA
+  dependsOn: []
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/qa'))
   variables:
   - group: qa_vg
