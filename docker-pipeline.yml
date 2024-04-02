@@ -1,6 +1,7 @@
 trigger:
   branches:
     include:
+    - dev
     - qa
     - staging
     - production
@@ -12,6 +13,27 @@ trigger:
 
 
 stages:
+
+- stage: Dev
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  variables:
+  - group: dev_vg
+  jobs:
+  - job: BuildAndPush
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: 'Build and push an image to container registry'
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          latest
+
 - stage: QA
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/qa'))
   variables:
