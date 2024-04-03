@@ -29,7 +29,7 @@ stages:
         command: build
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(dockerRegistryServiceConnectiondev)
         buildContext: .
         arguments: '--build-arg IMAGENV=$(IMAGENV)'
         tags: |
@@ -62,7 +62,7 @@ stages:
         command: build
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(dockerRegistryServiceConnectionqa)
         buildContext: .
         arguments: '--build-arg IMAGENV=$(IMAGENV)'
         tags: |
