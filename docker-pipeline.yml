@@ -41,7 +41,7 @@ stages:
       inputs:
         command: push
         repository: $(imageRepository)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(dockerRegistryServiceConnectiondev)
         tags: |
           $(tag)
           latest
@@ -74,7 +74,7 @@ stages:
       inputs:
         command: push
         repository: $(imageRepository)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(dockerRegistryServiceConnectionqa)
         tags: |
           $(tag)
           latest
